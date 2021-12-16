@@ -24,7 +24,7 @@
 
 #middletext {
     width: 100%;
-    height: 400px;
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,7 +35,7 @@
 
 #smalltext {
     width: 100%;
-    height: 200px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,23 +44,21 @@
 }
 
 body {
-    background-image: url("bgforproj.jpeg");
-
-}
-
-body {
-    background-color: #ff9800;
+    
+    background-color: #FAC466 !important;
     color: #fff;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
 
 #content {
-    position: absolute;
     height: 50px;
     width: 300px;
     margin-left: 170px;
-    top: 50%;
-    left: 58%;
     transform: translate(-50%, -50%);
     /* text-align: center; */
 }
@@ -192,4 +190,27 @@ input {
     -webkit-transform: translate(-100%, -50%);
     -ms-transform: translate(-100%, -50%);
     transform: translate(-100%, -50%);
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/bgforproj.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-size: auto auto; */
+    background-attachment: fixed;
+    border-radius: 2000px;
+    /* border-style: solid; */
+    width: 60vw;
+    box-shadow: 0px 0px 50px 5px rgb(209, 150, 83);
+}
+
+#form-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 33vw;
 }
