@@ -31,36 +31,20 @@ function stopCarousel() {
     clearInterval(interval); 
 }
 
-carouselBool = $('.carousel-image').on('mouseenter', function() {
+$('.carousel__cell').on('mouseenter', function() {
     stopCarousel();
 })
 
-$('.carousel-image').on('mouseleave', function(){
-    // this.iid && clearInterval(this.iid);
-    startCarousel(); 
-    carouselBool = false;
+$('.carousel__cell').on('mouseleave', function(event) {
+    // alert(event.target.classList);
+    if (event.target.classList.contains('flip-card-back') == false && 
+    event.target.classList.contains('tracklist') == false && 
+    event.target.classList.contains('card-tracks') == false && 
+    event.target.classList.contains('card-header-item') == false && 
+    event.target.classList.contains('tracklist-item') == false && 
+    event.target.classList.contains('card-header') == false) { 
+      startCarousel(); 
+    }
 });
 
 startCarousel();
-// function animationLoop(intervalVar) {
-//     var stopAnimationBool = false;
-//     document.addEventListener("mouseover", stopAnimation(event))
-//     document.removeEventListener();
-// }
-
-// const carouselImage = document.querySelectorAll('.carousel-image');
-
-// function animationLoop(interval) {
-//     carouselImage.forEach(image => {
-//         image.addEventListener('mouseenter', () => clearInterval(interval))
-//         image.addEventListener('mouseleave', animateLoop(startCarousel()))
-//     })
-// }
-
-// animationLoop(startCarousel());
-
-
-
-
-
-

@@ -12,6 +12,7 @@
 
 .myText {
     color: black;
+    font-size: 20px;
 }
 
 .nav-link {
@@ -20,6 +21,7 @@
 
 .navbar-brand {
     font-family: 'Courier New', Courier, monospace;
+    font-size: 35px !important;
 }
 
 #middletext {
@@ -195,17 +197,18 @@ input {
 #main-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     background-image: url("../images/bgforproj.jpeg");
     background-position: center;
     background-repeat: no-repeat;
-    /* background-size: auto auto; */
+    background-size: auto auto;
     background-attachment: fixed;
-    border-radius: 2000px;
-    /* border-style: solid; */
-    width: 60vw;
+    margin-top: 100px;
+    width: 40vw;
+    height: 40vw;
     box-shadow: 0px 0px 50px 5px rgb(209, 150, 83);
+    border-radius: 1000px;
 }
 
 #form-div {
