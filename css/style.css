@@ -58,6 +58,17 @@ body {
     align-items: center;
 }
 
+#ignore-container {
+    position:absolute;
+    left: 0;
+    width: 100%;
+}
+.artist-image {
+    height: 83px !important;
+    width: 83px !important;
+    box-shadow: 0px 0px 20px 1px black;
+}
+
 #container {
     display: flex;
     justify-content: center;
