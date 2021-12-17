@@ -24,27 +24,31 @@ function startCarousel() {
     interval = window.setInterval(function(){
         selectedIndex++;
         rotateCarousel();
-    }, 1000);
+    }, 4000);
 }
 
 function stopCarousel() {
     clearInterval(interval); 
 }
 
-$('.carousel__cell').on('mouseenter', function() {
+setTimeout(function(){
+  $('.album-cover').on('mouseenter', function() {
     stopCarousel();
-})
+  });
+}, 2000);
 
-$('.carousel__cell').on('mouseleave', function(event) {
-    // alert(event.target.classList);
-    if (event.target.classList.contains('flip-card-back') == false && 
-    event.target.classList.contains('tracklist') == false && 
-    event.target.classList.contains('card-tracks') == false && 
-    event.target.classList.contains('card-header-item') == false && 
-    event.target.classList.contains('tracklist-item') == false && 
-    event.target.classList.contains('card-header') == false) { 
-      startCarousel(); 
-    }
-});
+
+setTimeout(function(){
+  $('.carousel__cell').on('mouseleave', function(event) {
+      if (event.target.classList.contains('flip-card-back') == false && 
+      event.target.classList.contains('tracklist') == false && 
+      event.target.classList.contains('card-tracks') == false && 
+      event.target.classList.contains('card-header-item') == false && 
+      event.target.classList.contains('tracklist-item') == false && 
+      event.target.classList.contains('card-header') == false) { 
+        startCarousel(); 
+      }
+  });
+}, 2000);
 
 startCarousel();

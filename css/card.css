@@ -4,7 +4,7 @@
     width: 250px;
     height: 250px;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
-    font-size: 12px;
+    font-size: 10px;
   }
   
   /* This container is needed to position the front and back side */
@@ -74,7 +74,8 @@
     border-top-style: solid;
     border-color: white;
     border-width: 1px;
-    padding-top: 10px;
+    padding-top: 5px;
+    
   }
 
   .tracklist {
@@ -82,13 +83,17 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      text-align: center;
-      justify-content: center;
-      margin: 0;
+      align-items: flex-start;
+      margin-bottom: 30px;
+      margin-left: 20px;
       padding: 0;
       line-height: 1.2;
   }
 
   .tracklist-item {
       height: 1vw;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      padding-bottom: 5px;
   }
