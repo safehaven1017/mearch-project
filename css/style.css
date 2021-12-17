@@ -12,6 +12,7 @@
 
 .myText {
     color: black;
+    font-size: 1.5vw;
 }
 
 .nav-link {
@@ -20,17 +21,19 @@
 
 .navbar-brand {
     font-family: 'Courier New', Courier, monospace;
+    font-size: 3vw !important;
 }
 
 #middletext {
     width: 100%;
-    height: 200px;
+    height: inherit;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Courier New', Courier, monospace;
     font-size: xx-large;
     font-weight: 400;
+    margin-bottom: 5vw;
 }
 
 #smalltext {
@@ -58,11 +61,12 @@ body {
 }
 
 #content {
+    position: absolute;
     height: 50px;
     width: 300px;
-    margin-left: 170px;
+    margin-left: 16.5vw;
     transform: translate(-50%, -50%);
-    /* text-align: center; */
+    
 }
 
 #content.on {
@@ -171,7 +175,7 @@ input {
 .square {
     box-sizing: border-box;
     padding: 0 40px 0 10px;
-    width: 300px;
+    width: 400px;
     height: 50px;
     border: 4px solid #ffffff;
     border-radius: 0;
@@ -193,22 +197,20 @@ input {
 #main-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     background-image: url("../images/bgforproj.jpeg");
     background-position: center;
     background-repeat: no-repeat;
-    /* background-size: auto auto; */
+    background-size: auto auto;
     background-attachment: fixed;
-    border-radius: 2000px;
-    /* border-style: solid; */
-    width: 60vw;
+    margin-top: 100px;
+    width: 40vw;
+    height: 40vw;
     box-shadow: 0px 0px 50px 5px rgb(209, 150, 83);
+    border-radius: 1000px;
 }
 
 #form-div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 33vw;
+    margin: 1vw 0 1vw 0vw;
 }

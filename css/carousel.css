@@ -59,13 +59,15 @@ body { font-family: sans-serif; } */
 .carousel__cell:nth-child(10) { transform: rotateY(324deg) translateZ(600px); box-sizing: border-box;}
 
 .carousel-button {
-  margin-top: 400px;
-}
-
-.carousel-image {
-  height:350px;
-  width:350px;
-  /* margin-left: 100px; */
+  margin-top: 350px;
+  margin-right: 30px;
+  background-color: #2978F0;
+	color: inherit;
+	border-style: solid;
+  border-radius: 30px;
+	padding: 10px;
+	font: inherit;
+  font-size: 30px;
 }
 
 .carousel-image:hover {
