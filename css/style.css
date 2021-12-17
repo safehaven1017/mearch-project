@@ -20,8 +20,9 @@
 }
 
 .navbar-brand {
+
     font-family: 'Courier New', Courier, monospace;
-    font-size: 3vw !important;
+
 }
 
 #middletext {
@@ -60,13 +61,51 @@ body {
     align-items: center;
 }
 
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#row1 {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+#row2 {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+#row3 {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
 #content {
     position: absolute;
     height: 50px;
     width: 300px;
-    margin-left: 16.5vw;
+
+    margin-left: 170px;
+    left: 59%;
+
     transform: translate(-50%, -50%);
     
+}
+#cardcontainer {
+    background-color: transparent !important;
+    border-style: none;
+}
+
+h5{
+    background-color:transparent !important;
+}
+#card-body {
+font-size: 10px;
+background-color: transparent !important;
+height: 20px;
+float: left;
+text-align: left;
 }
 
 #content.on {
@@ -78,6 +117,15 @@ body {
     animation-timing-function: linear;
     -webkit-animation-iteration-count: 1;
     animation-iteration-count: 1;
+}
+#search-container {
+    font-display: white !important;
+    font-family: 'Courier New', Courier, monospace;
+    position: absolute;
+    max-width: 1920px;
+    width: 100%;
+    right: 1300px;
+    margin:0%
 }
 
 input {
