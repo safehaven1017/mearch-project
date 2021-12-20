@@ -2,28 +2,10 @@
 //BASE URL: https://api.napster.com/v2.1/
 //GET ALBUM TEMPLATE: https://api.napster.com/imageserver/v2/albums/Alb.111750366/images/600x600.jpg
 
-
 const input = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-btn");
 const defaultLink = 'https://api.napster.com/v2.2/albums/top?apikey=MTk2YWYyM2MtYTZjZC00MWUwLWE2NzUtNzA4ZTUyZjFjMWIx&limit=10';
 const apiKey = '?apikey=MTk2YWYyM2MtYTZjZC00MWUwLWE2NzUtNzA4ZTUyZjFjMWIx';
-
-function getAlbums(link) {
-  const albums = fetch(link).then(res => res.json())
-  .then(data => data.albums);
-  return albums;
-}
-
-function getTracksFromAlbums(albums) {
-  const idArray = albums.map(album => album.id);
-  const link = `https://api.napster.com/v2.2/albums/${idArray.join(',')}/tracks` + apiKey
-  const tracklist = fetch(link).then(res => res.json()).then(data => data.tracks);
-  return tracklist;
-}
-
-function getAlbumArtwork(albumID) {
-  return `https://api.napster.com/imageserver/v2/albums/${albumID}/images/600x600.jpg`;
-}
 
 function printHtmlAlbums(albumArray, trackArray, parentTag) {
   const albumHtmlArray = albumArray.map(album => {
@@ -57,7 +39,6 @@ const expand = () => {
   searchBtn.classList.toggle("close");
   input.classList.toggle("square");
 };
-
 searchBtn.addEventListener("click", expand);
 
 getAlbums(defaultLink).then(albums => {
