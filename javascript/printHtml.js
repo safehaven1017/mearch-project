@@ -102,3 +102,31 @@ function printSongResults(songArray, parentTag) {
   )
   document.querySelector(parentTag).innerHTML += songHtmlArray.join('');
 }
+
+function printGenreSongs(songArray, genre, parentTag) {
+  const songHtmlArray = songArray.map(song => {
+    if (song.links.genres.ids[0] == genre) {
+      return `<div class="album-names">
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img class="album-cover" src="${getAlbumArtwork(song.albumId)}" alt="${song.name} Album Cover">
+                </div>
+                <div class="flip-card-back">
+                    <div class="card-header">
+                        <span class="card-header-item">Song: ${song.name}</span>
+                        <span class="card-header-item">Artist: ${song.artistName}</span>
+                    </div>
+                    <div class="card-tracks">
+                    </div>
+                </div>
+            </div>
+        </div>
+      <h5 class="track-description">
+          ${song.name}
+      </h5>
+      <p class="album-description">Song by ${song.artistName}</p>
+    </div>`}
+  })
+  document.querySelector(parentTag).innerHTML += songHtmlArray.join('');
+}
