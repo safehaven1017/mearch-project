@@ -17,10 +17,11 @@
 
 .nav-link {
     color: black !important;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .navbar-brand {
-
+    color: whitesmoke !important;
     font-family: 'Courier New', Courier, monospace;
 
 }

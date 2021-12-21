@@ -25,13 +25,12 @@ function printHtmlAlbums(albumArray, trackArray, parentTag) {
     });
     document.querySelector(parentTag).innerHTML = albumHtmlArray.join('');
 }
-
 function printAlbumResults(albumArray, albumTrackArray, parentTag) {
     const albumHtmlArray = albumArray.map(album => {
         const date = album.released.substring(0, 4);
         const albumTracks = albumTrackArray.filter(track => track.albumId == album.id);
         const trackHtmlArray = albumTracks.map(track => `<li class="tracklist-item">${track.index}. "${track.name}"</li>`);
-        return `<div class="album-names">
+        return `<div class="album-names col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 mb-4">
       <div class="flip-card">
           <div class="flip-card-inner">
               <div class="flip-card-front">
@@ -57,12 +56,11 @@ function printAlbumResults(albumArray, albumTrackArray, parentTag) {
     });
     document.querySelector(parentTag).innerHTML = albumHtmlArray.join('');
 }
-
 function printArtistResults(artistArray, imageArray, parentTag) {
     const artistHtmlArray = [];
     for (let i = 0; i < imageArray.length; i++) {
         artistArray[i].name = artistArray[i].name.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
-        artistHtmlArray.push(`<div class="bodyforinfo">
+        artistHtmlArray.push(`<div class="bodyforinfo col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 mb-4">
         <img src="${imageArray[i].url}" class="artist-image rounded-circle"
             alt="...">
             <h5 class="artist-name">Artist: ${artistArray[i].name}</h5>
@@ -75,9 +73,8 @@ function printArtistResults(artistArray, imageArray, parentTag) {
         parent.innerHTML += artistHtmlArray.join('');
     }
 }
-
 function printSongResults(songArray, parentTag) {
-    const songHtmlArray = songArray.map(song => `<div class="album-names">
+    const songHtmlArray = songArray.map(song => `<div class="album-names col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 mb-4">
     <div class="flip-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
@@ -98,8 +95,6 @@ function printSongResults(songArray, parentTag) {
         ${song.name}
     </h5>
     <p class="album-description">Song by ${song.artistName}</p>
-
-
     <div class="custom-model-main">
         <div class="custom-model-inner">
             <div class="close-btn">×</div>
@@ -113,14 +108,11 @@ function printSongResults(songArray, parentTag) {
 </div>
 `)
     document.querySelector(parentTag).innerHTML += songHtmlArray.join('');
-
-
 }
-
 function printGenreSongs(songArray, genre, parentTag) {
     const songHtmlArray = songArray.map(song => {
         if (song.links.genres.ids[0] == genre) {
-            return `<div class="album-names">
+            return `<div class="album-names col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 mb-4">
         <div class="flip-card">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
@@ -155,5 +147,4 @@ function printGenreSongs(songArray, genre, parentTag) {
         }
     })
     document.querySelector(parentTag).innerHTML += songHtmlArray.join('');
-
 }
