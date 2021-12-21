@@ -79,4 +79,3 @@ function getArtistImages(results) {
   })
   return hiResImages;
 }
-

@@ -5,6 +5,7 @@
     height: 250px;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
     font-size: 10px;
+    animation: fadein 2s;
   }
   
   /* This container is needed to position the front and back side */
@@ -97,3 +98,12 @@
       padding: 0;
       padding-bottom: 5px;
   }
+
+  @keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

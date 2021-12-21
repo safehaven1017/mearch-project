@@ -88,6 +88,7 @@ body {
     width: 20vw;
     padding: 0;
     text-align: center;
+    animation: fadein 2s;
 }
 .bodyforinfo :hover {
     background:rgba(255, 193, 69, 0.952);
@@ -298,4 +299,25 @@ input {
 
 .card-title {
     font-weight: bold;
+}
+
+.genre-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: inherit;
+}
+
+.genre-header {
+    margin-bottom: 50px;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
