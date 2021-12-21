@@ -6,7 +6,8 @@ function renderLyrics(currentLyrics) {
 
 };
 
-fetch('https://api.lyrics.ovh/v1/stone temple pilots/plush')
+//fetches lyrics (needs variable based on specific song that is clicked)
+fetch('https://api.lyrics.ovh/v1/stone temple pilots/interstate love song')
     .then(function(response) {
         return response.json();
     })
@@ -16,3 +17,11 @@ fetch('https://api.lyrics.ovh/v1/stone temple pilots/plush')
     .catch(function(err) {
         console.log('error: ' + err);
     });
+
+// lyrics pop-up button
+$(".lyrics-button").on('click', function() {
+    $(".custom-model-main").addClass('model-open');
+});
+$(".close-btn, .bg-overlay").click(function() {
+    $(".custom-model-main").removeClass('model-open');
+});
