@@ -1,27 +1,28 @@
-const mainContainer = document.getElementById("myData");
+const mainContainer = document.querySelector(".myData");
 
-function renderLyrics(currentLyrics) {
+function getLyricsHTML(currentLyrics) {
 
-    mainContainer.innerHTML = currentLyrics.lyrics.substring(currentLyrics.lyrics.indexOf('\n') + 1).replaceAll('\r', '<br>').replace('Paroles de la chanson ', '').replace('par ', '').replaceAll('\n', '<br>').replaceAll('[]', '');
+    return currentLyrics.lyrics.substring(currentLyrics.lyrics.indexOf('\n') + 1).replaceAll('\r', '<br>').replace('Paroles de la chanson ', '').replace('par ', '').replaceAll('\n', '<br>').replaceAll('[]', '');
 
 };
 
-//fetches lyrics (needs variable based on specific song that is clicked)
-fetch('https://api.lyrics.ovh/v1/stone temple pilots/interstate love song')
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(data) {
-        renderLyrics(data);
-    })
-    .catch(function(err) {
-        console.log('error: ' + err);
-    });
-
 // lyrics pop-up button
-$(".lyrics-button").on('click', function() {
-    $(".custom-model-main").addClass('model-open');
-});
-$(".close-btn, .bg-overlay").click(function() {
-    $(".custom-model-main").removeClass('model-open');
+$(document).ready(function() {
+
+    $(document).on('click', '.lyrics-button', function(event) {
+        $(".custom-model-main").addClass('model-open');
+        fetch(`https://api.lyrics.ovh/v1/${$(this).attr("data-artistName")}/${$(this).attr("data-name")}`)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                const html = getLyricsHTML(data);
+                $(event.target).parent().find('.myData').html(html)
+            })
+    })
+
+    $(document).on('click', '.close-btn, .bg-overlay', function() {
+        console.log('button press')
+        $(".custom-model-main").removeClass('model-open');
+    });
 });
