@@ -8,10 +8,20 @@ getSearchResults(`https://api.napster.com/v2.2/search/verbose${apiKey}&query=${s
     getTracksFromAlbums(musicData.albums).then(tracks => {
         printAlbumResults(musicData.albums,tracks,'#generated-content')
     });
+    setTimeout(() => {
+        let emptyTag = document.querySelector('#generated-content');
+    if (emptyTag.innerHTML == '') {
+        emptyTag.classList.add("no-results");
+        emptyTag.innerHTML = "No Search Results"
+    }
+    }, 1000)
 });
 
 formSubmission.addEventListener('submit', function(event) { 
     // event listener code goes here
     event.preventDefault();
+    if (input.value == '') {
+        return 0;
+    }
     window.open(`albumresults.html?search=${input.value}`,"_self");
   });

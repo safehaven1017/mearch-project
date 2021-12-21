@@ -10,12 +10,23 @@ getSearchResults(`https://api.napster.com/v2.2/search/verbose${apiKey}&query=${s
         getArtistImages(musicData.artists).then(images => {
             printArtistResults(musicData.artists,images,'#generated-content');
             printSongResults(musicData.tracks, '#generated-content');
+            setTimeout(() => {
+                let emptyTag = document.querySelector('#generated-content');
+                if (emptyTag.innerHTML == '') {
+                    emptyTag.classList.add("no-results");
+                    emptyTag.innerHTML = "No Search Results"
+            }
+            }, 2000)
         })
     });
+    
 });
 
 formSubmission.addEventListener('submit', function(event) { 
     // event listener code goes here
     event.preventDefault();
+    if (input.value == '') {
+        return 0;
+    }
     window.open(`topresults.html?search=${input.value}`,"_self");
   });
