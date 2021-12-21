@@ -10,19 +10,19 @@ function getLyricsHTML(currentLyrics) {
 $(document).ready(function() {
 
     $(document).on('click', '.lyrics-button', function(event) {
-        $(".custom-model-main").addClass('model-open');
+        console.log('button press')
+        $(event.target).closest('.album-names').find('.custom-model-main').addClass('model-open');
         fetch(`https://api.lyrics.ovh/v1/${$(this).attr("data-artistName")}/${$(this).attr("data-name")}`)
             .then(function(response) {
                 return response.json();
             })
             .then(function(data) {
                 const html = getLyricsHTML(data);
-                $(event.target).parent().find('.myData').html(html)
+                $(event.target).closest('.album-names').find('.myData').html(html)
             })
     })
 
     $(document).on('click', '.close-btn, .bg-overlay', function() {
-        console.log('button press')
         $(".custom-model-main").removeClass('model-open');
     });
 });
