@@ -5,7 +5,6 @@
 const input = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-btn");
 const defaultLink = 'https://api.napster.com/v2.2/albums/top?apikey=MTk2YWYyM2MtYTZjZC00MWUwLWE2NzUtNzA4ZTUyZjFjMWIx&limit=10';
-const apiKey = '?apikey=MTk2YWYyM2MtYTZjZC00MWUwLWE2NzUtNzA4ZTUyZjFjMWIx';
 
 function printHtmlAlbums(albumArray, trackArray, parentTag) {
   const albumHtmlArray = albumArray.map(album => {
