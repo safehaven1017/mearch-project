@@ -132,6 +132,7 @@ function printGenreSongs(songArray, genre, parentTag) {
                         <span class="card-header-item">Artist: ${song.artistName}</span>
                     </div>
                     <div class="card-tracks">
+                    <button class="lyrics-button" data-artistName='${song.artistName}' data-name='${song.name}'>Lyrics</button>
                     </div>
                 </div>
             </div>
@@ -140,6 +141,16 @@ function printGenreSongs(songArray, genre, parentTag) {
           ${song.name}
       </h5>
       <p class="album-description">Song by ${song.artistName}</p>
+      <div class="custom-model-main">
+        <div class="custom-model-inner">
+            <div class="close-btn">×</div>
+            <div class="custom-model-wrap">
+                <div class="pop-up-content-wrap myData">
+                </div>
+            </div>
+        </div>
+        <div class="bg-overlay"></div>
+    </div>
     </div>`
         }
     })
