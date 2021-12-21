@@ -33,6 +33,7 @@
     height: 50%;
     margin-left: 10%;
     margin-right: 10%;
+    flex-direction: row;
 }
 #middletext {
     width: 100%;
@@ -78,10 +79,11 @@ body {
 
 .bodyforinfo{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
     margin:0 5% 5% 5%;
     font-family: 'Courier New', Courier, monospace;
-    width: 100%;
+    width: 20%;
 }
 .bodyforinfo :hover {
     background:rgba(255, 193, 69, 0.952);

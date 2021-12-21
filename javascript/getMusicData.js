@@ -26,6 +26,7 @@ function getAlbumArtwork(albumID) {
 function getSearchResults(link) {
   const resultsObject = fetch(link).then(res => res.json())
   .then(musicData => {
+    // console.log(musicData);
     const musicDataObject = {
       albums: musicData.search.data.albums,
       artists: musicData.search.data.artists,
@@ -38,15 +39,23 @@ function getSearchResults(link) {
 
 // after parsing an array of artist objects for their ids, this function will fetch an array of images. returns highest res images.
 function getArtistImages(results) {
-  const idArray = results.artists.map(artist => artist.id);
+  const idArray = results.map(artist => artist.id);
   const hiResImages = fetch(`https://api.napster.com/v2.2/artists/${idArray.join(',')}/images${apiKey}`)
   .then(res => res.json())
   .then(images => {
+    console.log(images);
     const artistImageArray = [];
     let sameImageArray = [];
+    let currentPicNumStart = 0;
+    let lastPicNumStart = 0;
+    
     for (let i = 0; i < images.images.length; i++) {
-      // there are multiple images per artist. This loop organizes the images by artist using image id.
-      if ( i > 0 && images.images[i].id.substring(0,9) != images.images[i-1].id.substring(0,9)) {
+      if (i > 0) {
+        currentPicNumStart = images.images[i].url.lastIndexOf('/') + 1;
+        lastPicNumStart = images.images[i-1].url.lastIndexOf('/') + 1;
+      }
+      // there are multiple images per artist. This loop organizes the images by artist using image url.
+      if ( i > 0 && images.images[i].url.substring(currentPicNumStart,currentPicNumStart + 4) != images.images[i-1].url.substring(lastPicNumStart,lastPicNumStart + 4)) {
         artistImageArray.push(sameImageArray);
         sameImageArray = [];
         sameImageArray.push(images.images[i]);
@@ -57,6 +66,7 @@ function getArtistImages(results) {
     }
 
     // now we grab the image with the highest res per artist.
+    // console.log(artistImageArray);
     const finalArray = artistImageArray.map(imageAllSizes => {
       let tempHighestRes = imageAllSizes[0];
       for (let i = 0; i <imageAllSizes.length; i++) {
@@ -66,6 +76,7 @@ function getArtistImages(results) {
       }
       return tempHighestRes;
     });
+    console.log(finalArray);
     return finalArray;
   })
   return hiResImages;
