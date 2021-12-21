@@ -24,7 +24,7 @@ function startCarousel() {
     interval = window.setInterval(function(){
         selectedIndex++;
         rotateCarousel();
-    }, 4000);
+    }, 3000);
 }
 
 function stopCarousel() {
