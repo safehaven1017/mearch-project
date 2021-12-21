@@ -5,14 +5,13 @@
 const input = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-btn");
 const defaultLink = 'https://api.napster.com/v2.2/albums/top?apikey=MTk2YWYyM2MtYTZjZC00MWUwLWE2NzUtNzA4ZTUyZjFjMWIx&limit=10';
-const apiKey = '?apikey=MTk2YWYyM2MtYTZjZC00MWUwLWE2NzUtNzA4ZTUyZjFjMWIx';
 
 function printHtmlAlbums(albumArray, trackArray, parentTag) {
-  const albumHtmlArray = albumArray.map(album => {
-    const date = album.released.substring(0,4);
-    const albumTracks = trackArray.filter(track => track.albumId == album.id);
-    const trackHtmlArray = albumTracks.map(track => `<li class="tracklist-item">${track.index}. "${track.name}"</li>`);
-    return `<div class="carousel__cell">
+    const albumHtmlArray = albumArray.map(album => {
+        const date = album.released.substring(0, 4);
+        const albumTracks = trackArray.filter(track => track.albumId == album.id);
+        const trackHtmlArray = albumTracks.map(track => `<li class="tracklist-item">${track.index}. "${track.name}"</li>`);
+        return `<div class="carousel__cell">
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front">
@@ -31,19 +30,19 @@ function printHtmlAlbums(albumArray, trackArray, parentTag) {
         </div>
       </div>
     </div>`
-  });
-  document.querySelector(parentTag).innerHTML = albumHtmlArray.join('');
+    });
+    document.querySelector(parentTag).innerHTML = albumHtmlArray.join('');
 }
 
 const expand = () => {
-  searchBtn.classList.toggle("close");
-  input.classList.toggle("square");
+    searchBtn.classList.toggle("close");
+    input.classList.toggle("square");
 };
 searchBtn.addEventListener("click", expand);
 
 getAlbums(defaultLink).then(albums => {
-  getTracksFromAlbums(albums).then(tracks => {
-    printHtmlAlbums(albums, tracks, '.carousel');
-    console.log(tracks);
-  });
+    getTracksFromAlbums(albums).then(tracks => {
+        printHtmlAlbums(albums, tracks, '.carousel');
+        console.log(tracks);
+    });
 });

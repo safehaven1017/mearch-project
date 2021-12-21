@@ -5,12 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/lyrics-popup.css">
     <title>Document</title>
 </head>
 
 <body>
-    <div id="myData"></div>
-
+    <button class="lyrics-button">Lyrics</button>
+    <div class="custom-model-main">
+        <div class="custom-model-inner">
+            <div class="close-btn">×</div>
+            <div class="custom-model-wrap">
+                <div class="pop-up-content-wrap" id="myData">
+                </div>
+            </div>
+        </div>
+        <div class="bg-overlay"></div>
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src="/javascript/popup-message.js"></script>
     <script src="./javascript/lyrics.js"></script>
 
 </body>
