@@ -43,7 +43,6 @@ function getArtistImages(results) {
   const hiResImages = fetch(`https://api.napster.com/v2.2/artists/${idArray.join(',')}/images${apiKey}`)
   .then(res => res.json())
   .then(images => {
-    console.log(images);
     const artistImageArray = [];
     let sameImageArray = [];
     let currentPicNumStart = 0;
@@ -76,8 +75,8 @@ function getArtistImages(results) {
       }
       return tempHighestRes;
     });
-    console.log(finalArray);
     return finalArray;
   })
   return hiResImages;
 }
+

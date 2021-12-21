@@ -14,6 +14,5 @@ getAlbums(defaultLink).then(albums => {
 formSubmission.addEventListener('submit', function(event) { 
   // event listener code goes here
   event.preventDefault();
-  console.log(input.value);
   window.open(`topresults.html?search=${input.value}`,"_self");
 });
