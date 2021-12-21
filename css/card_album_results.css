@@ -1,115 +1,131 @@
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {
-    background-color: transparent;
-    width: 250px;
-    height: 250px;
+  background-color: transparent;
+  width: 250px;
+  height: 250px;
 
-     /* Remove this if you don't want the 3D effect */
-    font-size: 10px;
-    margin: 0 5% 5% 5%;
-    filter: drop-shadow(0px 0px 10px #000000);
-  }
-  
-  /* This container is needed to position the front and back side */
-  .flip-card-inner {
-    position: relative;
-    width: inherit;
+    /* Remove this if you don't want the 3D effect */
+  font-size: 10px;
+  margin: 0 5% 5% 5%;
+  filter: drop-shadow(0px 0px 10px #000000);
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: inherit;
+  height: inherit;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card.hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  transform: rotateY(180deg);
+}
+
+.album-cover {
     height: inherit;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-  }
-  
-  /* Do an horizontal flip when you move the mouse over the flip box container */
-  .flip-card.hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-  
-  /* Position the front and back side */
-  .flip-card-front, .flip-card-back {
-    position: absolute;
     width: inherit;
-    height: inherit;
-    -webkit-backface-visibility: hidden; /* Safari */
-    backface-visibility: hidden;
-  }
-  
-  /* Style the front side (fallback if image is missing) */
-  .flip-card-front {
-    background-color: #bbb;
-    color: black;
-  }
-  
-  /* Style the back side */
-  .flip-card-back {
-    background-color: black;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    transform: rotateY(180deg);
-  }
+}
 
-  .album-cover {
-      height: inherit;
-      width: inherit;
-  }
-
-  .card-header {
-      height: 25%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: none;
-  }
-  .card-header-item {
-      height: 1vw;
-      width: auto;
-      display: inline-block;
-      line-height: 1.2;
-      margin-top: .5vw;
-  }
-
-  .card-tracks {
-    overflow: overlay;
-    display: flex;
-    justify-content: center;
-    border-top-style: solid;
-    border-color: white;
-    border-width: 1px;
-    padding-top: 5px;
-    
-  }
-
-  .tracklist {
-      font-size: 10px;
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      margin-bottom: 30px;
-      margin-left: 20px;
-      padding: 0;
-      line-height: 1.2;
-  }
-
-  .tracklist-item {
-      height: 1vw;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      padding-bottom: 5px;
-  }
-  .album-names {
+.card-header {
+    height: 25%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 25%;
-  }
-  .album-description {
-    text-align: center;
-  }
-  p.album-description {
-    margin: 0px 0px 40px 0px;
-    text-align: center;
-  }
+    justify-content: center;
+    padding: none;
+}
+.card-header-item {
+    height: 1vw;
+    width: auto;
+    display: inline-block;
+    line-height: 1.2;
+    margin-top: .5vw;
+}
+
+.card-tracks {
+  overflow: overlay;
+  display: flex;
+  justify-content: center;
+  border-top-style: solid;
+  border-color: white;
+  border-width: 1px;
+  padding-top: 5px;
+  
+}
+
+.tracklist {
+    font-size: 10px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    padding: 0;
+    line-height: 1.2;
+}
+
+.tracklist-item {
+    height: 1vw;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 5px;
+}
+.album-names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+}
+.album-description {
+  text-align: center;
+}
+
+p.album-description {
+  margin: 0px 0px 40px 0px;
+  text-align: center;
+}
+
+#generated-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+
+#results-header {
+  margin: 0 0 5% 0;
+}
+
+.artist-name {
+  height: 2vw;
+  width: 9vw;
+}

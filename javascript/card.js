@@ -3,4 +3,4 @@ setTimeout(function(){
         $(this).closest('.flip-card').toggleClass('hover');
         $(this).css('transform, rotateY(180deg)');
     });
-}, 1000);
+}, 2000);
