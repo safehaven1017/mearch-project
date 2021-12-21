@@ -12,7 +12,9 @@ getAlbums(defaultLink).then(albums => {
 });
 
 formSubmission.addEventListener('submit', function(event) { 
-  // event listener code goes here
   event.preventDefault();
+  if (input.value == '') {
+    return 0;
+  }
   window.open(`topresults.html?search=${input.value}`,"_self");
 });

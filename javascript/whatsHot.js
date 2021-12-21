@@ -2,6 +2,7 @@
 const params = new URLSearchParams(window.location.search);
 const search = params.get('search');
 const parentHtmlDiv = document.querySelector("#generated-content");
+const formSubmission = document.querySelector("#content");
 
 function getGenres() { 
     const genres = fetch('https://api.napster.com/v2.2/genres?apikey=MTk2YWYyM2MtYTZjZC00MWUwLWE2NzUtNzA4ZTUyZjFjMWIx')
@@ -28,5 +29,14 @@ getGenres().then(genres => {
             
         }
     });
+});
+
+formSubmission.addEventListener('submit', function(event) { 
+    // event listener code goes here
+    event.preventDefault();
+    if (input.value == '') {
+        return 0;
+    }
+    window.open(`topresults.html?search=${input.value}`,"_self");
 });
 

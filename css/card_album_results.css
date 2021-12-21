@@ -143,6 +143,15 @@ p.album-description {
   text-align: center;
 }
 
+.no-results {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center;
+  font-size: 20px;
+}
+
 @keyframes fadein {
   from {
       opacity: 0;
